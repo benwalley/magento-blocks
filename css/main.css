@@ -1,0 +1,97 @@
+.wrapper {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  font-family: 'Lato', sans-serif; }
+
+.search-form {
+  display: flex;
+  border: none;
+  box-sizing: border-box;
+  margin: 20px 0; }
+  .search-form .search-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    flex-grow: 1; }
+  .search-form .action.submit {
+    border: none;
+    color: white;
+    font-size: 15px;
+    text-transform: uppercase;
+    padding: 0 20px;
+    background: #0080de;
+    font-weight: bold;
+    letter-spacing: 1px;
+    cursor: pointer; }
+
+.search-options {
+  display: flex; }
+  .search-options h3 {
+    padding-right: 20px; }
+  .search-options div {
+    padding: 10px;
+    display: flex;
+    align-items: center; }
+
+.search-result {
+  border: 1px solid #a0a0a0;
+  padding: 10px;
+  margin: 10px 0;
+  box-shadow: 1px 1px 3px #c1c1c1;
+  overflow: hidden;
+  max-width: 800px; }
+  .search-result .block-container {
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    width: 100%;
+    display: block; }
+  .search-result .left-content {
+    width: 50%;
+    float: left; }
+    .search-result .left-content div {
+      padding: 10px; }
+  .search-result img {
+    width: 50%;
+    float: right; }
+  .search-result .name {
+    width: 100%;
+    display: block;
+    font-size: 25px;
+    font-weight: bold;
+    text-align: center;
+    padding-bottom: 20px; }
+  .search-result .css-class {
+    width: 100%;
+    display: block; }
+  .search-result .notes {
+    width: 100%;
+    display: block; }
+  .search-result .type {
+    font-weight: bold; }
+  .search-result .see-additional {
+    width: 100%;
+    float: left;
+    text-align: center;
+    margin-bottom: 0;
+    cursor: pointer; }
+  .search-result .additional-info {
+    display: none;
+    width: 100%;
+    float: left;
+    padding-top: 20px;
+    margin-top: 20px;
+    border-top: 1px solid black; }
+    .search-result .additional-info .additional-images {
+      width: 50%;
+      float: right; }
+      .search-result .additional-info .additional-images img {
+        width: 100%; }
+    .search-result .additional-info .additional-left {
+      width: 50%; }
+  .search-result.active .additional-info {
+    display: flex; }
+
+/*# sourceMappingURL=main.css.map */

@@ -1,0 +1,82 @@
+.wrapper {
+	width: 90%;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.search-result {
+	border: 1px solid #a0a0a0;
+	padding: 10px;
+	margin: 10px;
+	box-shadow: 1px 1px 3px #c1c1c1;
+	overflow: hidden;
+	max-width: 800px;
+}
+
+.search-result.block {
+	background: #48A9A6;
+}
+
+.search-result.container {
+	background: #D4B483;
+}
+
+.search-result .block-container {
+	font-size: 20px;
+	font-weight: bold;
+	text-transform: uppercase;
+	width:100%;
+	display: block;
+}
+
+.search-result .left-content {
+	width: 50%;
+	float: left;
+}
+
+.search-result img {
+	width:50%;
+	float: right;
+}
+
+.search-result .name {
+	width: 100%;
+	display: block;
+}
+
+.search-result .css-class {
+	width: 100%;
+	display: block;
+}
+
+.search-results .notes {
+	width: 100%;
+	display: block;
+}
+
+.search-results .see-additional {
+	width: 100%;
+	float: left;
+	text-align: center;
+	margin-bottom: 0;
+	cursor: pointer;
+}
+
+.search-results .additional-info {
+	display: none;
+	width: 100%;
+	float: left;
+}
+
+.search-results .additional-info .additional-images {
+	width: 50%;
+	float: right;
+}
+
+.search-results .additional-info .additional-images img {
+	width: 100%;
+}
+
+.search-results .active .additional-info {
+	display: block;
+}
