@@ -2,10 +2,20 @@
 var blockData = [];
 var searchClass = true;
 var searchName = true;
+var storageName = "blockData";
+var personalNotes = {};
 
 function pageInit() {
 	getData()
 	initListeners();
+}
+
+function setLocalStorage() {
+	localStorage.setItem(storageName, JSON.stringify(personalNotes));
+}
+
+function getLocalStorage() {
+	personalNotes = JSON.parse(localStorage.getItem(storageName));
 }
 
 function updateResults(query) {
@@ -26,6 +36,14 @@ function updateResults(query) {
 			}
 		})
 	}
+
+	$(".personal-note").on("change", function(e) {
+		var parent = this.dataset.parent;
+		
+		var current = this.value;
+		personalNotes[parent] = current;
+		setLocalStorage();
+	})
 }
 
 function initListeners() {
@@ -112,6 +130,13 @@ function createBlock(data) {
 		var image = "";
 	}
 
+	// Personal Notes
+	if(personalNotes[data.name]) {
+		var personalNote = "<textarea class='personal-note' data-parent='" + data.name + "'>" + personalNotes[data.name] + "</textarea>";
+	} else {
+		var personalNote = "";
+	}
+
 	// Get Parent if it exists
 	if(data.parent) {
 		var parent = "<div class='parent'>Parent: " + data.parent + "</div>";
@@ -149,6 +174,7 @@ function createBlock(data) {
 			+ notes
 			+ parent
 			+ children
+			+ personalNote
 		+ "</div>"
 		+ additionalImages
 	+ "</div>"
@@ -195,7 +221,7 @@ function getData() {
 	.done(function(data) {
 		blockData = mapData(data.values);
 	})
-	console.log(data);
+	getLocalStorage();
 }
 
 function mapData(data) {

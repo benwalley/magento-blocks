@@ -103,6 +103,16 @@ body {
 		padding-bottom: 20px;
 	}
 
+	.personal-note {
+		width: 100%;
+		box-sizing: border-box;
+		height: 100px;
+		font-family: 'Lato', sans-serif;
+		font-size: 16px;
+		padding: 5px;
+		letter-spacing: 1px;
+	}
+
 	.css-class {
 		width: 100%;
 		display: block;
@@ -144,6 +154,8 @@ body {
 
 		.additional-left {
 			width: 50%;
+			display: flex;
+			flex-direction: column;
 		}
 	}
 
