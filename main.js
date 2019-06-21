@@ -1,26 +1,5 @@
 
-var blockData = [
-	{
-		name: 'page.wrapper',
-		class: 'page-wrapper',
-		notes: 'Main page wrapper',
-		image: ['https://www.belightsoft.com/products/imagetricks/img/core-image-filters@2x.jpg', 'https://www.belightsoft.com/products/imagetricks/img/core-image-filters@2x.jpg'],
-		block: false,
-		container: true,
-		parent: 'body',
-		children: ['main.content', 'nav.main']
-	},
-	{
-		name: 'page.wrapper',
-		class: 'page-wrapper',
-		notes: 'Main page wrapper',
-		image: 'https://wow.olympus.eu/webfile/img/1632/oly_testwow_stage.jpg?x=1024',
-		block: true,
-		container: false,
-		parent: 'body',
-		children: ['main.content', 'nav.main']
-	}
-]
+var blockData = [];
 var searchClass = true;
 var searchName = true;
 
