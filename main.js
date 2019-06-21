@@ -21,13 +21,17 @@ var blockData = [
 		children: ['main.content', 'nav.main']
 	}
 ]
+var searchClass = true;
+var searchName = true;
 
 function pageInit() {
+	getData()
 	initListeners();
 }
 
 function updateResults(query) {
 	var matches = getSearchMatches(query);
+	$(".search-results").html("");
 
 	for(var i = 0; i < matches.length; i++) {
 		var block = createBlock(matches[i])
@@ -51,9 +55,44 @@ function initListeners() {
 		$(".search-input").val("");
 	})	
 
-	$("window").on("keyup", function() {
-		updateResults($(".search-input").val());
+	document.querySelector('.search-input').addEventListener('keyup', function (e) {
+	      updateResults($(".search-input").val());
+	});
+
+	document.querySelector('.search-input').addEventListener('keypress', function (e) {
+	    var key = e.which || e.keyCode;
+	    if (key === 13) { // 13 is enter
+	      // code for enter
+	      updateResults($(".search-input").val());
 		$(".search-input").val("");
+	    }
+	});
+
+	$("window").on("keypress", function(e) {
+		var key = e.which || e.keyCode;
+	    if (key === 13) { // 13 is enter
+	      // code for enter
+	      updateResults($(".search-input").val());
+		$(".search-input").val("");
+	    }
+	})
+
+	$(".search-options #css") .on("change", function(e) {
+		var isChecked = $(".search-options #css").is(':checked');
+		if(isChecked) {
+			searchClass = true;
+		} else {
+			searchClass = false;
+		}
+	})
+
+	$(".search-options #name") .on("change", function(e) {
+		var isChecked = $(".search-options #name").is(':checked');
+		if(isChecked) {
+			searchName = true;
+		} else {
+			searchName = false;
+		}
 	})
 }
 
@@ -153,7 +192,21 @@ function createBlock(data) {
 }
 
 function getSearchMatches(query) {
-	return blockData
+	var matches = [];
+	for (var i = 0; i < blockData.length; i++) {
+		if(searchClass) {
+			// if query is in the class name
+			if(blockData[i].class.indexOf(query) != -1) {
+				matches.push(blockData[i])
+			}
+		} else if(searchName) {
+			// if query is in the block name
+			if(blockData[i].name.indexOf(query) != -1) {
+				matches.push(blockData[i])
+			}
+		}
+	}
+	return matches;
 }
 pageInit();
 
@@ -214,5 +267,3 @@ function cleanData(data) {
 function transpose(matrix) {
   return matrix[0].map((col, i) => matrix.map(row => row[i]));
 }
-
-getData()
